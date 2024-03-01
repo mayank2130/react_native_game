@@ -35,11 +35,14 @@ const App = () => {
           </View>
           <View style={styles.containerInTwo}>
             <Text style={[styles.footerTxt]}>$ 10.0</Text>
-            <Text style={[styles.footerTxt]}>per click</Text>
+            <Text style={[styles.footerNextTxt]}>per click</Text>
           </View>
         </LinearGradient>
       </View>
-      <TouchableOpacity onPress={() => makeMoney()} style={styles.containerTwo}>
+      <TouchableOpacity
+        onPress={() => makeMoney()}
+        style={[styles.containerTwo, { backgroundColor: "#fff" }]}
+      >
         <FontAwesome name="hand-o-up" size={75} color="black" />
         <Text style={{ fontFamily: "mon", marginTop: 5 }}>
           Click in this area to make money
@@ -52,24 +55,26 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    height: 30,
+    height: 10,
+  },
+  footerNextTxt: {
+    fontFamily: "mon",
   },
   footerTxt: {
     fontFamily: "mon-b",
     color: "#fff",
     letterSpacing: 2,
     marginLeft: 15,
-    marginBottom: 15,
     fontSize: 22,
-    textAlign: "center",
   },
   headingTxt: {
     fontFamily: "mon",
     color: "#fff",
-    letterSpacing: 4,
+    letterSpacing: 1,
     marginLeft: 25,
-    marginBottom: 8,
+    paddingBottom: 10,
     fontSize: 15,
+    justifyContent: "flex-end",
   },
   txtStyle: {
     fontFamily: "mon",
@@ -88,7 +93,6 @@ const styles = StyleSheet.create({
     fontFamily: "mon-b",
     color: "#fff",
     letterSpacing: 4,
-    marginBottom: 10,
     marginLeft: 10,
     fontSize: 35,
     flexShrink: 1,
@@ -96,39 +100,38 @@ const styles = StyleSheet.create({
   logoContainer: {
     alignItems: "flex-start",
     flexDirection: "row",
-    marginBottom: 40,
+    marginBottom: 30,
+    marginTop: 30,
     marginLeft: 25,
   },
   logo: {
     height: 20,
     width: 22,
-    // alignItems: "center",
-    // marginBottom: 60,
-    // marginLeft: 25,
   },
   containerInOne: {
-    flex: 1,
     backgroundColor: "#343434",
-    justifyContent: "flex-end",
-    height: 155,
+    height: 250, // Adjust the height as needed
     marginTop: 50,
     margin: 10,
     borderRadius: 25,
+    flex: 0, // Add this line to set flex to 0
   },
   containerInTwo: {
-    backgroundColor: "#F5F5F5",
+    flexDirection: "row",
+    alignItems: "center",
+    height: 80, // Adjust the height as needed
     opacity: 0.4,
-    paddingTop: 35,
     margin: 10,
     borderRadius: 25,
-    flexDirection: "row",
-    alignItems: "flex-start",
+    gap: 8,
+    backgroundColor: "#F5F5F5",
+    flex: 0, // Add this line to set flex to 0
   },
   containerTwo: {
     alignItems: "center",
     justifyContent: "center",
-    paddingTop: 220,
-    paddingBottom: 150,
+    paddingTop: 175,
+    paddingBottom: 175,
   },
   gradient: {
     flex: 1,
