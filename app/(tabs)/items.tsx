@@ -1,7 +1,7 @@
 import {
   Image,
   ImageBackground,
-  SafeAreaView,
+  Linking,
   ScrollView,
   StyleSheet,
   Text,
@@ -9,76 +9,238 @@ import {
   View,
 } from "react-native";
 import React from "react";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function ElevatedCards() {
+  function openWebsite(websiteLink: string) {
+    Linking.openURL(websiteLink);
+  }
+
   return (
-    <View>
+    <View style={{ backgroundColor: "#fff" }}>
       <View>
-        <Text style={styles.headingText}>Elevated Cards</Text>
-        <ScrollView horizontal={true} style={styles.container}>
-          <View style={[styles.card, styles.cardElevated]}>
-            <ImageBackground
-              source={require("../../assets/card.png")}
-              style={{
-                height: 100,
-                width: 100,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Text style={styles.overlayText}>Hello</Text>
-            </ImageBackground>
+        <ScrollView>
+          <Text style={[styles.headingTextTwo, { marginTop: 5 }]}>
+            Buy Yourself Everything
+          </Text>
+          <ScrollView horizontal={true} style={[styles.container]}>
+            <View style={[styles.card, styles.cardElevated]}>
+              <ImageBackground
+                source={require("../../assets/card.png")}
+                style={{
+                  height: 150,
+                  width: 150,
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Text style={styles.overlayText}>Car Showroom</Text>
+              </ImageBackground>
+            </View>
+            <View style={[styles.card, styles.cardElevated]}>
+              <Text>Private Planes</Text>
+            </View>
+            <View style={[styles.card, styles.cardElevated]}>
+              <Text>Private Yachts</Text>
+            </View>
+            <View style={[styles.card, styles.cardElevated]}>
+              <Text>Clothes</Text>
+            </View>
+            <View style={[styles.card, styles.cardElevated]}>
+              <Text>Watches</Text>
+            </View>
+            <View style={[styles.card, styles.cardElevated]}>
+              <Text>Shoes</Text>
+            </View>
+            <Text>   </Text>
+          </ScrollView>
+
+          {/* Travel vehicals */}
+          <View style={{ marginTop: 30 }}>
+            <Text style={styles.headingTextTwo}>Your Travel</Text>
+            <View style={styles.container}>
+              <LinearGradient
+                colors={["#00CCFF", "#007BA7"]}
+                start={{ x: 0, y: 1 }}
+                end={{ x: 1, y: 1 }}
+                style={styles.gradient}
+              >
+                <View style={[styles.container]}>
+                  <View style={[styles.cardTwo]}>
+                    <TouchableOpacity style={styles.innerCard}>
+                      <Image source={require("../../assets/images/car.png")} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.innerCard}>
+                      <Image
+                        source={require("../../assets/images/plane.png")}
+                      />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.innerCard}>
+                      <Image
+                        source={require("../../assets/images/yacht.png")}
+                      />
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              </LinearGradient>
+            </View>
           </View>
-          <View style={[styles.card, styles.cardElevated]}>
-            <Text>Lilly</Text>
+
+          {/* Your Fashion */}
+          <View style={{ marginTop: 30 }}>
+            <Text style={styles.headingTextTwo}>Your Fashion</Text>
+            <View style={[styles.container]}>
+              <LinearGradient
+                colors={["#00CCFF", "#007BA7"]}
+                start={{ x: 0, y: 1 }}
+                end={{ x: 1, y: 1 }}
+                style={styles.gradient}
+              >
+                <View style={[styles.container]}>
+                  <View style={styles.cardTwo}>
+                    <TouchableOpacity style={styles.innerCard}>
+                      <Image
+                        source={require("../../assets/images/suit.png")}
+                        style={{ width: 40, height: 50 }}
+                      />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.innerCard}>
+                      <Image
+                        source={require("../../assets/images/watches.png")}
+                      />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.innerCard}>
+                      <Image
+                        source={require("../../assets/images/shoe.png")}
+                        style={{ width: 40, height: 50 }}
+                      />
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              </LinearGradient>
+            </View>
           </View>
-          <View style={[styles.card, styles.cardElevated]}>
-            <Text>Hi</Text>
-          </View>
-          <View style={[styles.card, styles.cardElevated]}>
-            <Text>how</Text>
-          </View>
-          <View style={[styles.card, styles.cardElevated]}>
-            <Text>are</Text>
-          </View>
-          <View style={[styles.card, styles.cardElevated]}>
-            <Text>you?</Text>
+          <View>
+            {/* Collextions */}
+
+            <View style={{ marginTop: 30 }}>
+              <Text style={styles.headingText}>Collections</Text>
+              <View style={styles.containerTwo}>
+                <TouchableOpacity>
+                  <View
+                    style={[
+                      styles.cardThree,
+                      styles.cardElevated,
+                      { alignItems: "center", justifyContent: "center" },
+                    ]}
+                  >
+                    <Text>Coins</Text>
+                  </View>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <View
+                    style={[
+                      styles.cardThree,
+                      styles.cardElevated,
+                      { alignItems: "center", justifyContent: "center" },
+                    ]}
+                  >
+                    <Text>Paintings</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.containerThree}>
+                <TouchableOpacity>
+                  <View
+                    style={[
+                      styles.cardFour,
+                      styles.cardElevated,
+                      { alignItems: "center", justifyContent: "center" },
+                    ]}
+                  >
+                    <Text>Sports memorabilia</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.containerTwo}>
+                <TouchableOpacity>
+                  <View
+                    style={[
+                      styles.cardThree,
+                      styles.cardElevated,
+                      { alignItems: "center", justifyContent: "center" },
+                    ]}
+                  >
+                    <Text>Bags</Text>
+                  </View>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <View
+                    style={[
+                      styles.cardThree,
+                      styles.cardElevated,
+                      { alignItems: "center", justifyContent: "center" },
+                    ]}
+                  >
+                    <Text>Jewels</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+            </View>
+
+            {/* Islands */}
+            <View style={styles.seperator}>
+              <View style={styles.containerThree}>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    marginBottom: 50,
+                    marginLeft: 100,
+                    marginRight: 100,
+                  }}
+                >
+                  <View
+                    style={{ flex: 1, height: 1, backgroundColor: "black" }}
+                  />
+                  <View
+                    style={{ flex: 1, height: 1, backgroundColor: "black" }}
+                  />
+                </View>
+                <TouchableOpacity>
+                  <View>
+                    <View
+                      style={[
+                        styles.cardFour,
+                        styles.cardElevated,
+                        {
+                          justifyContent: "flex-end",
+                        },
+                      ]}
+                    >
+                      <View style={styles.container}>
+                        <View
+                          style={[
+                            styles.cardTwo,
+                            {
+                              flexDirection: "column",
+                              alignItems: "center",
+                            },
+                          ]}
+                        >
+                          <Image
+                            source={require("../../assets/images/car.png")}
+                          />
+                          <Text>Islands</Text>
+                        </View>
+                      </View>
+                    </View>
+                  </View>
+                </TouchableOpacity>
+              </View>
+            </View>
           </View>
         </ScrollView>
-
-{/* Travel vehicals */}
-
-        <Text style={styles.headingText}>Your Travel</Text>
-        <View style={styles.container}>
-          <View style={[styles.cardTwo, styles.cardElevated]}>
-            <TouchableOpacity style={styles.innerCard}>
-              <Image source={require("../../assets/images/car.png")} />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.innerCard}>
-              <Image source={require("../../assets/images/plane.png")} />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.innerCard}>
-              <Image source={require("../../assets/images/yacht.png")} />
-            </TouchableOpacity>
-          </View>
-        </View>
-
-{/* Your Fashion */}
-
-        <Text style={styles.headingText}>Your Fashion</Text>
-        <View style={styles.container}>
-          <View style={[styles.cardTwo, styles.cardElevated]}>
-            <TouchableOpacity style={styles.innerCard}>
-              <Image source={require("../../assets/images/suit.png")} style={{width:40, height:50}} />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.innerCard}>
-              <Image source={require("../../assets/images/watches.png")} />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.innerCard}>
-              <Image source={require("../../assets/images/car.png")} />
-            </TouchableOpacity>
-          </View>
-        </View>
       </View>
     </View>
   );
@@ -90,6 +252,65 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingHorizontal: 10,
     margin: 2,
+    marginBottom: 10,
+  },
+  seperator: {
+    marginTop: 50,
+  },
+  cardThree: {
+    width: 180,
+    height: 180,
+    borderRadius: 10,
+    marginVertical: 12,
+    marginHorizontal: 10,
+  },
+  cardFour: {
+    height: 180,
+    width: 380,
+    borderRadius: 10,
+    marginVertical: 12,
+    marginHorizontal: 10,
+  },
+  cardImage: {
+    height: 200,
+    marginBottom: 10,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+  },
+  cardBody: {
+    flex: 1,
+    flexGrow: 1,
+    paddingHorizontal: 12,
+  },
+  cardSemiBody: {
+    flex: 1,
+    flexGrow: 1,
+    flexDirection: "row",
+    gap: 45,
+  },
+  cardTilte: {
+    color: "#000000",
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 8,
+  },
+  cardLabel: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 12,
+  },
+  cardDescription: {
+    fontSize: 15,
+  },
+  cardFooter: {
+    fontSize: 15,
+  },
+  headingTextTwo: {
+    fontSize: 24,
+    fontWeight: "bold",
+    paddingHorizontal: 10,
+    margin: 2,
+    marginBottom: 10,
   },
   overlayText: {
     bottom: 0,
@@ -101,13 +322,28 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 10,
   },
+  containerTwo: {
+    // height: "auto",
+    // width:"auto",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  containerThree: {
+    flex: 1,
+    marginLeft: 8,
+    marginRight: 8,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+  },
   card: {
     flex: 1,
     margin: 8,
     justifyContent: "center",
     alignItems: "center",
-    height: 100,
-    width: 100,
+    height: 140,
+    width: 140,
     borderRadius: 4,
   },
   cardTwo: {
@@ -124,8 +360,8 @@ const styles = StyleSheet.create({
   innerCard: {
     flex: 1,
     marginLeft: 10,
-    paddingBottom:4,
-    paddingTop:4,
+    paddingBottom: 4,
+    paddingTop: 4,
     flexDirection: "column",
     gap: 10,
     alignItems: "center",
@@ -135,7 +371,16 @@ const styles = StyleSheet.create({
     // borderRadius: 4,
   },
   cardElevated: {
-    backgroundColor: "#CAD5E2",
+    backgroundColor: "#FFFFFF",
+    elevation: 8,
+    shadowOffset: {
+      width: 1,
+      height: 1,
+    },
+  },
+  gradient: {
+    flex: 1,
+    borderRadius: 35,
     elevation: 8,
   },
 });

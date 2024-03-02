@@ -2,12 +2,7 @@ import { View, Text, SafeAreaView } from "react-native";
 import React from "react";
 import { Tabs } from "expo-router";
 import Colors from "@/constants/Colors";
-import {
-  FontAwesome5,
-  FontAwesome6,
-  Ionicons,
-  MaterialCommunityIcons,
-} from "@expo/vector-icons";
+import { FontAwesome6, Ionicons } from "@expo/vector-icons";
 
 const Layout = () => {
   return (
@@ -17,10 +12,11 @@ const Layout = () => {
         tabBarLabelStyle: {
           fontFamily: "mon-sb",
         },
+        // headerTitle:"",
         tabBarStyle: { paddingBottom: 7, height: 56, gap: 1 },
       }}
     >
-      <Tabs.Screen
+      {/* <Tabs.Screen
         name="investing"
         options={{
           tabBarLabel: "Investing",
@@ -28,10 +24,12 @@ const Layout = () => {
             <Ionicons name="bar-chart" size={24} color="black" />
           ),
         }}
-      />
+      /> */}
       <Tabs.Screen
         name="business"
         options={{
+          headerShown: false,
+          headerTitle: "",
           tabBarLabel: "Business",
           tabBarIcon: ({ color, size }) => (
             <FontAwesome6 name="building-columns" size={24} color="black" />
@@ -56,6 +54,8 @@ const Layout = () => {
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="car-sport" size={24} color="black" />
           ),
+          headerTitle: "Items",
+          headerTitleAlign: "center",
         }}
       />
       <Tabs.Screen
