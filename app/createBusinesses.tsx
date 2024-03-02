@@ -29,7 +29,7 @@ export default function ElevatedCards() {
     <View style={{ backgroundColor: "#fff" }}>
       <ScrollView>
         <View style={{ marginTop: 30 }}>
-          <Text style={styles.headingText}>Buy any Businesses</Text>
+          <Text style={styles.headingText}>Choose a new business category</Text>
           <View style={styles.containerTwo}>
             <TouchableOpacity>
               <View
@@ -39,7 +39,7 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
-                <Text style={styles.innerTxt}>Airline</Text>
+                <Text style={styles.innerTxt}>Grocery Store</Text>
               </View>
             </TouchableOpacity>
             <TouchableOpacity>
@@ -50,7 +50,7 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
-                <Text style={styles.innerTxt}>Football Club</Text>
+                <Text style={styles.innerTxt}>Factory</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -63,7 +63,8 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
-                <Text style={styles.innerTxt}>F1 Team</Text>
+                <Text style={styles.innerTxt}>Construction </Text>
+                <Text style={styles.innerTxt}>Company </Text>
               </View>
             </TouchableOpacity>
             <TouchableOpacity>
@@ -74,31 +75,8 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
-                <Text style={styles.innerTxt}>Shipping Company</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.containerTwo}>
-            <TouchableOpacity>
-              <View
-                style={[
-                  styles.cardThree,
-                  styles.cardElevated,
-                  { alignItems: "center", justifyContent: "center" },
-                ]}
-              >
-                <Text style={styles.innerTxt}>Adult Entertainment Company</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <View
-                style={[
-                  styles.cardThree,
-                  styles.cardElevated,
-                  { alignItems: "center", justifyContent: "center" },
-                ]}
-              >
-                <Text style={styles.innerTxt}>Movie Studio</Text>
+                <Text style={styles.innerTxt}>Intelligence</Text>
+                <Text style={styles.innerTxt}>Company</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -111,7 +89,7 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
-                <Text style={styles.innerTxt}>Media Company</Text>
+                <Text style={styles.innerTxt}>Bank</Text>
               </View>
             </TouchableOpacity>
             <TouchableOpacity>
@@ -122,7 +100,7 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
-                <Text style={styles.innerTxt}>Social Media Platform</Text>
+                <Text style={styles.innerTxt}>Tech Startup</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -135,7 +113,8 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
-                <Text style={styles.innerTxt}>Casino</Text>
+                <Text style={styles.innerTxt}>Oil & Gas</Text>
+                <Text style={styles.innerTxt}>Company</Text>
               </View>
             </TouchableOpacity>
             <TouchableOpacity>
@@ -146,7 +125,33 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
-                <Text style={styles.innerTxt}>Resorts</Text>
+                <Text style={styles.innerTxt}>Power Plants</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.containerTwo}>
+            <TouchableOpacity>
+              <View
+                style={[
+                  styles.cardThree,
+                  styles.cardElevated,
+                  { alignItems: "center", justifyContent: "center" },
+                ]}
+              >
+                <Text style={styles.innerTxt}>Selling Drugs</Text>
+                <Text style={styles.innerTxt}>Operation</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <View
+                style={[
+                  styles.cardThree,
+                  styles.cardElevated,
+                  { alignItems: "center", justifyContent: "center" },
+                ]}
+              >
+                <Text style={styles.innerTxt}>Private Militia </Text>
+                <Text style={styles.innerTxt}>Company </Text>
               </View>
             </TouchableOpacity>
           </View>
