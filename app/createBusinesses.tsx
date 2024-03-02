@@ -138,8 +138,7 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
-                <Text style={styles.innerTxt}>Selling Drugs</Text>
-                <Text style={styles.innerTxt}>Operation</Text>
+                <Text style={styles.innerTxt}>Drug Cartel</Text>
               </View>
             </TouchableOpacity>
             <TouchableOpacity>
@@ -150,8 +149,7 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
-                <Text style={styles.innerTxt}>Private Militia </Text>
-                <Text style={styles.innerTxt}>Company </Text>
+                <Text style={styles.innerTxt}>Arms Delear </Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -176,8 +174,8 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   cardThree: {
-    width: 180,
-    height: 180,
+    width: 160,
+    height: 160,
     borderRadius: 10,
     marginVertical: 12,
     marginHorizontal: 10,

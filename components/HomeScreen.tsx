@@ -7,6 +7,7 @@ import {
     Text,
     TouchableOpacity,
     View,
+    useWindowDimensions,
   } from "react-native";
   import React from "react";
   import { LinearGradient } from "expo-linear-gradient";
@@ -17,13 +18,10 @@ import {
     return (
       <>
         
-        <View style={{ backgroundColor: "#fff" }}>
+        <View style={{ backgroundColor: "#fff", flex:1 }}>
           <View>
             <ScrollView>
-              <Text style={[styles.headingTextTwo, { marginTop: 50 }]}>
-                Business
-              </Text>
-              <View style={styles.containerThree}>
+              <View style={[styles.containerThree, {paddingTop: 20}]}>
                 <TouchableOpacity>
                   <View
                     style={[
@@ -131,7 +129,7 @@ import {
     },
     cardFour: {
       height: 100,
-      width: 380,
+      width: 340,
       borderRadius: 10,
       marginVertical: 12,
       marginHorizontal: 10,
@@ -248,7 +246,7 @@ import {
     },
     cardElevated: {
       backgroundColor: "#FFFFFF",
-      elevation: 8,
+      elevation: 4,
       shadowOffset: {
         width: 1,
         height: 1,
@@ -257,7 +255,7 @@ import {
     gradient: {
       flex: 1,
       borderRadius: 35,
-      elevation: 8,
+      elevation: 4,
     },
   });
   

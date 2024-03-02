@@ -165,14 +165,15 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingHorizontal: 10,
     margin: 2,
+    marginLeft: 12,
     marginBottom: 10,
   },
   seperator: {
     marginTop: 50,
   },
   cardThree: {
-    width: 180,
-    height: 180,
+    width: 160,
+    height: 160,
     borderRadius: 10,
     marginVertical: 12,
     marginHorizontal: 10,

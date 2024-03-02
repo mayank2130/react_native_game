@@ -12,32 +12,36 @@ const App = () => {
 
   return (
     <>
-      <View style={styles.container}>
-        <LinearGradient
-          colors={["#00CCFF", "#007BA7"]}
-          start={{ x: 0, y: 0.5 }}
-          end={{ x: 1, y: 0.5 }}
-          style={styles.gradient}
-        >
-          <View style={[styles.containerInOne, styles.container]}>
-            <View style={styles.logoContainer}>
-              <Image
-                source={require("../../assets/card.png")}
-                style={styles.logo}
-              />
-              <Text style={styles.txtStyle}>*** 7439</Text>
-              <View style={styles.expTxtStyle}>
-                <Text style={styles.txtStyle}>06/16</Text>
+      <View style={{ backgroundColor: "#ffffff" }}>
+        <View style={{ height: 280 }}>
+          <LinearGradient
+            colors={["#00CCFF", "#007BA7"]}
+            start={{ x: 0, y: 0.5 }}
+            end={{ x: 1, y: 0.5 }}
+            style={styles.gradient}
+          >
+            <View style={[styles.containerInOne]}>
+              <View style={{ flexDirection: "column" }}>
+                <View style={styles.logoContainer}>
+                  <Image
+                    source={require("../../assets/card.png")}
+                    style={styles.logo}
+                  />
+                  <Text style={styles.txtStyle}>*** 7439</Text>
+                  <View style={styles.expTxtStyle}>
+                    <Text style={styles.txtStyle}>06/16</Text>
+                  </View>
+                </View>
+                <Text style={styles.headingTxt}>Balance:</Text>
+                <Text style={[styles.balanceTxt]}> $ {balance}</Text>
               </View>
             </View>
-            <Text style={styles.headingTxt}>Balance:</Text>
-            <Text style={[styles.balanceTxt]}> $ {balance}</Text>
-          </View>
-          <View style={styles.containerInTwo}>
-            <Text style={[styles.footerTxt]}>$ 10.0</Text>
-            <Text style={[styles.footerNextTxt]}>per click</Text>
-          </View>
-        </LinearGradient>
+            <View style={styles.containerInTwo}>
+              <Text style={[styles.footerTxt]}>$ 10.0</Text>
+              <Text style={[styles.footerNextTxt]}>per click</Text>
+            </View>
+          </LinearGradient>
+        </View>
       </View>
       <TouchableOpacity
         onPress={() => makeMoney()}
@@ -62,7 +66,7 @@ const styles = StyleSheet.create({
   },
   footerTxt: {
     fontFamily: "mon-b",
-    color: "#fff",
+    color: "#000000",
     letterSpacing: 2,
     marginLeft: 15,
     fontSize: 22,
@@ -94,14 +98,13 @@ const styles = StyleSheet.create({
     color: "#fff",
     letterSpacing: 4,
     marginLeft: 10,
-    fontSize: 35,
+    fontSize: 22,
     flexShrink: 1,
   },
   logoContainer: {
     alignItems: "flex-start",
     flexDirection: "row",
-    marginBottom: 30,
-    marginTop: 30,
+    marginBottom: 20,
     marginLeft: 25,
   },
   logo: {
@@ -109,17 +112,18 @@ const styles = StyleSheet.create({
     width: 22,
   },
   containerInOne: {
+    flexDirection: "row",
+    alignItems: "center",
     backgroundColor: "#343434",
-    height: 250, // Adjust the height as needed
     marginTop: 50,
     margin: 10,
     borderRadius: 25,
-    flex: 0, // Add this line to set flex to 0
+    flex: 1, // Add this line to set flex to 0
   },
   containerInTwo: {
     flexDirection: "row",
     alignItems: "center",
-    height: 80, // Adjust the height as needed
+    height: 60, // Adjust the height as needed
     opacity: 0.4,
     margin: 10,
     borderRadius: 25,
@@ -128,10 +132,9 @@ const styles = StyleSheet.create({
     flex: 0, // Add this line to set flex to 0
   },
   containerTwo: {
+    flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    paddingTop: 175,
-    paddingBottom: 175,
   },
   gradient: {
     flex: 1,

@@ -28,8 +28,8 @@ export default function ElevatedCards() {
               <ImageBackground
                 source={require("../../assets/card.png")}
                 style={{
-                  height: 150,
-                  width: 150,
+                  height: 120,
+                  width: 120,
                   justifyContent: "center",
                   alignItems: "center",
                 }}
@@ -252,21 +252,22 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingHorizontal: 10,
     margin: 2,
+    marginLeft: 12,
     marginBottom: 10,
   },
   seperator: {
     marginTop: 50,
   },
   cardThree: {
-    width: 180,
-    height: 180,
+    width: 160,
+    height: 160,
     borderRadius: 10,
     marginVertical: 12,
     marginHorizontal: 10,
   },
   cardFour: {
     height: 180,
-    width: 380,
+    width: 340,
     borderRadius: 10,
     marginVertical: 12,
     marginHorizontal: 10,
@@ -310,6 +311,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingHorizontal: 10,
     margin: 2,
+    marginLeft: 12,
     marginBottom: 10,
   },
   overlayText: {
@@ -339,12 +341,12 @@ const styles = StyleSheet.create({
   },
   card: {
     flex: 1,
-    margin: 8,
+    margin: 6,
     justifyContent: "center",
     alignItems: "center",
-    height: 140,
-    width: 140,
-    borderRadius: 4,
+    height: 130,
+    width: 130,
+    borderRadius: 8,
   },
   cardTwo: {
     flex: 1,
