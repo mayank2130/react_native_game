@@ -20,7 +20,7 @@ export default function ElevatedCards() {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerTitle: "",
+      headerTitle: "Buy any Businesses",
       // headerTransparent: true,
     });
   }, []);
@@ -29,7 +29,7 @@ export default function ElevatedCards() {
     <View style={{ backgroundColor: "#fff" }}>
       <ScrollView>
         <View style={{ marginTop: 30 }}>
-          <Text style={styles.headingText}>Buy any Businesses</Text>
+          {/* <Text style={styles.headingText}>Buy any Businesses</Text> */}
           <View style={styles.containerTwo}>
             <TouchableOpacity>
               <View
@@ -39,6 +39,17 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
+                <ImageBackground
+                  source={require("../assets/images/planetwo.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
                 <Text style={styles.innerTxt}>Airline</Text>
               </View>
             </TouchableOpacity>
@@ -50,6 +61,17 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
+                <ImageBackground
+                  source={require("../assets/images/football-field.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
                 <Text style={styles.innerTxt}>Football Club</Text>
               </View>
             </TouchableOpacity>
@@ -63,7 +85,18 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
+                <ImageBackground
+                  source={require("../assets/images/formula.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
                 <Text style={styles.innerTxt}>F1 Team</Text>
+                {/* <Text style={styles.innerTxt}></Text> */}
               </View>
             </TouchableOpacity>
             <TouchableOpacity>
@@ -74,6 +107,17 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
+                <ImageBackground
+                  source={require("../assets/images/cargo-ship.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    // margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
                 <Text style={styles.innerTxt}>Shipping Company</Text>
               </View>
             </TouchableOpacity>
@@ -87,6 +131,17 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
+                <ImageBackground
+                  source={require("../assets/images/xxx.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
                 <Text style={styles.innerTxt}>Adult Entertainment Company</Text>
               </View>
             </TouchableOpacity>
@@ -98,6 +153,17 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
+                <ImageBackground
+                  source={require("../assets/images/video-player.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
                 <Text style={styles.innerTxt}>Movie Studio</Text>
               </View>
             </TouchableOpacity>
@@ -111,7 +177,18 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
-                <Text style={styles.innerTxt}>Media Company</Text>
+                <ImageBackground
+                  source={require("../assets/images/broadcast.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
+                <Text style={styles.innerTxt}>Tv Network</Text>
               </View>
             </TouchableOpacity>
             <TouchableOpacity>
@@ -122,7 +199,18 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
-                <Text style={styles.innerTxt}>Social Media Platform</Text>
+                <ImageBackground
+                  source={require("../assets/images/social-media.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
+                <Text style={styles.innerTxt}>Media Platform</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -135,6 +223,17 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
+                <ImageBackground
+                  source={require("../assets/images/casino-roulette.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
                 <Text style={styles.innerTxt}>Casino</Text>
               </View>
             </TouchableOpacity>
@@ -146,6 +245,17 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
+                <ImageBackground
+                  source={require("../assets/images/resort.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
                 <Text style={styles.innerTxt}>Resorts</Text>
               </View>
             </TouchableOpacity>
