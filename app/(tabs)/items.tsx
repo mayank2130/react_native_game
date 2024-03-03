@@ -25,34 +25,89 @@ export default function ElevatedCards() {
           </Text>
           <ScrollView horizontal={true} style={[styles.container]}>
             <View style={[styles.card, styles.cardElevated]}>
-              <ImageBackground
-                source={require("../../assets/card.png")}
+              <Image
+                source={require("../../assets/images/cars.jpg")}
                 style={{
-                  height: 120,
-                  width: 120,
+                  height: 130,
+                  width: 130,
+                  borderRadius: 8,
                   justifyContent: "center",
                   alignItems: "center",
                 }}
-              >
-                <Text style={styles.overlayText}>Car Showroom</Text>
-              </ImageBackground>
+              />
             </View>
             <View style={[styles.card, styles.cardElevated]}>
-              <Text>Private Planes</Text>
+              <TouchableOpacity activeOpacity={1}>
+                <Image
+                  source={require("../../assets/images/privatejet.jpg")}
+                  style={{
+                    height: 130,
+                    width: 130,
+                    borderRadius: 8,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
+              </TouchableOpacity>
             </View>
             <View style={[styles.card, styles.cardElevated]}>
-              <Text>Private Yachts</Text>
+              <TouchableOpacity activeOpacity={1}>
+                <Image
+                  source={require("../../assets/images/privateyacht.jpg")}
+                  style={{
+                    height: 130,
+                    width: 130,
+                    borderRadius: 8,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
+              </TouchableOpacity>
             </View>
             <View style={[styles.card, styles.cardElevated]}>
-              <Text>Clothes</Text>
+              <TouchableOpacity activeOpacity={1}>
+                <Image
+                  source={require("../../assets/images/buySuits.jpg")}
+                  style={{
+                    height: 130,
+                    width: 130,
+                    borderRadius: 8,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
+              </TouchableOpacity>
             </View>
             <View style={[styles.card, styles.cardElevated]}>
-              <Text>Watches</Text>
+              <TouchableOpacity activeOpacity={1}>
+                <Image
+                  source={require("../../assets/images/clock.jpg")}
+                  style={{
+                    height: 130,
+                    width: 130,
+                    borderRadius: 8,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
+              </TouchableOpacity>
             </View>
             <View style={[styles.card, styles.cardElevated]}>
-              <Text>Shoes</Text>
+              <TouchableOpacity activeOpacity={1}>
+                <Image
+                  source={require("../../assets/images/shoes.jpg")}
+                  style={{
+                    height: 130,
+                    width: 130,
+                    borderRadius: 8,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
+              </TouchableOpacity>
             </View>
-            <Text>   </Text>
+
+            <Text>     </Text>
           </ScrollView>
 
           {/* Travel vehicals */}
@@ -134,7 +189,18 @@ export default function ElevatedCards() {
                       { alignItems: "center", justifyContent: "center" },
                     ]}
                   >
-                    <Text>Coins</Text>
+                    <ImageBackground
+                      source={require("../../assets/images/coins.png")}
+                      style={{
+                        height: 60,
+                        width: 60,
+                        borderRadius: 25,
+                        margin: 6,
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    />
+                    <Text style={styles.innerTxt}>Coins</Text>
                   </View>
                 </TouchableOpacity>
                 <TouchableOpacity>
@@ -145,7 +211,20 @@ export default function ElevatedCards() {
                       { alignItems: "center", justifyContent: "center" },
                     ]}
                   >
-                    <Text>Paintings</Text>
+                    <View style={{}}>
+                      <Image
+                        source={require("../../assets/images/paintings.jpg")}
+                        style={{
+                          height: 60,
+                          width: 60,
+                          borderRadius: 360,
+                          margin: 6,
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      />
+                    </View>
+                    <Text style={styles.innerTxt}>Paintings</Text>
                   </View>
                 </TouchableOpacity>
               </View>
@@ -158,7 +237,31 @@ export default function ElevatedCards() {
                       { alignItems: "center", justifyContent: "center" },
                     ]}
                   >
-                    <Text>Sports memorabilia</Text>
+                    <View style={{ flexDirection: "row" }}>
+                      <ImageBackground
+                        source={require("../../assets/images/sports.png")}
+                        style={{
+                          height: 60,
+                          width: 60,
+                          borderRadius: 25,
+                          margin: 6,
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      />
+                      <ImageBackground
+                        source={require("../../assets/images/jersey.png")}
+                        style={{
+                          height: 60,
+                          width: 60,
+                          borderRadius: 25,
+                          margin: 6,
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      />
+                    </View>
+                    <Text style={styles.innerTxt}>Sports memorabilia</Text>
                   </View>
                 </TouchableOpacity>
               </View>
@@ -171,7 +274,18 @@ export default function ElevatedCards() {
                       { alignItems: "center", justifyContent: "center" },
                     ]}
                   >
-                    <Text>Bags</Text>
+                    <ImageBackground
+                      source={require("../../assets/images/bags.png")}
+                      style={{
+                        height: 60,
+                        width: 60,
+                        borderRadius: 25,
+                        margin: 6,
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    />
+                    <Text style={styles.innerTxt}>Bags</Text>
                   </View>
                 </TouchableOpacity>
                 <TouchableOpacity>
@@ -182,7 +296,18 @@ export default function ElevatedCards() {
                       { alignItems: "center", justifyContent: "center" },
                     ]}
                   >
-                    <Text>Jewels</Text>
+                    <ImageBackground
+                      source={require("../../assets/images/necklace.png")}
+                      style={{
+                        height: 60,
+                        width: 60,
+                        borderRadius: 25,
+                        margin: 6,
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    />
+                    <Text style={styles.innerTxt}>Jewels</Text>
                   </View>
                 </TouchableOpacity>
               </View>
@@ -228,10 +353,25 @@ export default function ElevatedCards() {
                             },
                           ]}
                         >
-                          <Image
-                            source={require("../../assets/images/car.png")}
+                          <ImageBackground
+                            source={require("../../assets/images/island.png")}
+                            style={{
+                              height: 100,
+                              width: 100,
+                              borderRadius: 25,
+                              margin: 6,
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
                           />
-                          <Text>Islands</Text>
+                          <Text
+                            style={[
+                              styles.innerTxt,
+                              { paddingBottom: 45, paddingTop: 25 },
+                            ]}
+                          >
+                            Islands
+                          </Text>
                         </View>
                       </View>
                     </View>
@@ -254,6 +394,10 @@ const styles = StyleSheet.create({
     margin: 2,
     marginLeft: 12,
     marginBottom: 10,
+  },
+  innerTxt: {
+    fontFamily: "mon-sb",
+    fontSize: 20,
   },
   seperator: {
     marginTop: 50,
