@@ -1,16 +1,13 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import MyTabs from "../TabsThree";
+import MyTabs from "../TabsFive";
 
 const business = () => {
   return (
     <>
-      <View style={{ backgroundColor: "#fff" }}>
-        <Text style={[styles.headingTextTwo, { marginTop: 40 }]}>
-          Business{" "}
-        </Text>
+      <View style={{ backgroundColor: "#fff", flex: 1 }}>
+        <MyTabs />
       </View>
-      <MyTabs />
     </>
   );
 };

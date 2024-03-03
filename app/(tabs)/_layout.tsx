@@ -7,6 +7,7 @@ import { FontAwesome6, Ionicons } from "@expo/vector-icons";
 const Layout = () => {
   return (
     <Tabs
+    initialRouteName="earnings"
       screenOptions={{
         tabBarActiveTintColor: Colors.primary,
         tabBarLabelStyle: {
@@ -14,17 +15,20 @@ const Layout = () => {
         },
         // headerTitle:"",
         tabBarStyle: { paddingBottom: 7, height: 56, gap: 1 },
+        
       }}
     >
-      {/* <Tabs.Screen
+      <Tabs.Screen
         name="investing"
         options={{
+          headerShown: false,
+          headerTitle: "",
           tabBarLabel: "Investing",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="bar-chart" size={24} color="black" />
           ),
         }}
-      /> */}
+      />
       <Tabs.Screen
         name="business"
         options={{
