@@ -54,8 +54,8 @@ const Layout = () => {
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="car-sport" size={24} color="black" />
           ),
-          headerTitle: "Items",
-          headerTitleAlign: "center",
+          headerTitle: "Buy Yourself Everything",
+          headerTitleAlign: "left",
         }}
       />
       <Tabs.Screen

@@ -20,9 +20,9 @@ export default function ElevatedCards() {
     <View style={{ backgroundColor: "#fff" }}>
       <View>
         <ScrollView>
-          <Text style={[styles.headingTextTwo, { marginTop: 5 }]}>
-            Buy Yourself Everything
-          </Text>
+          {/* <Text style={[styles.headingTextTwo, { marginTop: 5 }]}>
+            
+          </Text> */}
           <ScrollView horizontal={true} style={[styles.container]}>
             <View style={[styles.card, styles.cardElevated]}>
               <Image
@@ -111,7 +111,7 @@ export default function ElevatedCards() {
           </ScrollView>
 
           {/* Travel vehicals */}
-          <View style={{ marginTop: 30 }}>
+          <View style={{ marginTop: 10 }}>
             <Text style={styles.headingTextTwo}>Your Travel</Text>
             <View style={styles.container}>
               <LinearGradient
