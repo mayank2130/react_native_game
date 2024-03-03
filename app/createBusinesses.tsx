@@ -20,7 +20,7 @@ export default function ElevatedCards() {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerTitle: "",
+      headerTitle: "Choose a new business",
       // headerTransparent: true,
     });
   }, []);
@@ -29,7 +29,7 @@ export default function ElevatedCards() {
     <View style={{ backgroundColor: "#fff" }}>
       <ScrollView>
         <View style={{ marginTop: 30 }}>
-          <Text style={styles.headingText}>Choose a new business category</Text>
+          {/* <Text style={styles.headingText}></Text> */}
           <View style={styles.containerTwo}>
             <TouchableOpacity>
               <View
@@ -39,6 +39,17 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
+                <ImageBackground
+                  source={require("../assets/images/grocery-cart.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
                 <Text style={styles.innerTxt}>Grocery Store</Text>
               </View>
             </TouchableOpacity>
@@ -50,6 +61,17 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
+                <ImageBackground
+                  source={require("../assets/images/factory.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
                 <Text style={styles.innerTxt}>Factory</Text>
               </View>
             </TouchableOpacity>
@@ -63,6 +85,17 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
+                <ImageBackground
+                  source={require("../assets/images/construction-site.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
                 <Text style={styles.innerTxt}>Construction </Text>
                 <Text style={styles.innerTxt}>Company </Text>
               </View>
@@ -75,6 +108,17 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
+                <ImageBackground
+                  source={require("../assets/images/spyware.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
                 <Text style={styles.innerTxt}>Intelligence</Text>
                 <Text style={styles.innerTxt}>Company</Text>
               </View>
@@ -89,6 +133,17 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
+                <ImageBackground
+                  source={require("../assets/images/bank.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
                 <Text style={styles.innerTxt}>Bank</Text>
               </View>
             </TouchableOpacity>
@@ -100,6 +155,17 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
+                <ImageBackground
+                  source={require("../assets/images/virtual-reality.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
                 <Text style={styles.innerTxt}>Tech Startup</Text>
               </View>
             </TouchableOpacity>
@@ -113,6 +179,17 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
+                <ImageBackground
+                  source={require("../assets/images/oil-rig.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
                 <Text style={styles.innerTxt}>Oil & Gas</Text>
                 <Text style={styles.innerTxt}>Company</Text>
               </View>
@@ -125,6 +202,17 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
+                <ImageBackground
+                  source={require("../assets/images/electric-factory.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
                 <Text style={styles.innerTxt}>Power Plants</Text>
               </View>
             </TouchableOpacity>
@@ -138,6 +226,17 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
+                <ImageBackground
+                  source={require("../assets/images/cocaine_4612345.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
                 <Text style={styles.innerTxt}>Drug Cartel</Text>
               </View>
             </TouchableOpacity>
@@ -149,6 +248,17 @@ export default function ElevatedCards() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
+                <ImageBackground
+                  source={require("../assets/images/launcher_942492.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                />
                 <Text style={styles.innerTxt}>Arms Delear </Text>
               </View>
             </TouchableOpacity>
