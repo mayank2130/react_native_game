@@ -39,7 +39,20 @@ export default function BusinessScreen() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
-                <Text style={styles.innerTxt}>City Bank</Text>
+                <ImageBackground
+                  source={require("../assets/images/bank.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                ></ImageBackground>
+                <Text style={[styles.innerTxt,]}>
+                  City Bank
+                </Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -52,6 +65,17 @@ export default function BusinessScreen() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
+                <ImageBackground
+                  source={require("../assets/images/banktwo.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                ></ImageBackground>
                 <Text style={styles.innerTxt}>Investment Bank</Text>
               </View>
             </TouchableOpacity>
@@ -65,6 +89,17 @@ export default function BusinessScreen() {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
+                <ImageBackground
+                  source={require("../assets/images/gov.png")}
+                  style={{
+                    height: 60,
+                    width: 60,
+                    borderRadius: 25,
+                    margin: 6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                ></ImageBackground>
                 <Text style={styles.innerTxt}>Govt. National Bank</Text>
               </View>
             </TouchableOpacity>
@@ -78,6 +113,7 @@ export default function BusinessScreen() {
 const styles = StyleSheet.create({
   innerTxt: {
     fontFamily: "mon-sb",
+    fontSize: 20,
   },
   headingText: {
     fontSize: 24,
