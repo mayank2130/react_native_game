@@ -1,8 +1,10 @@
+import { ImageSourcePropType } from "react-native";
+
 export interface CreateBusinessTypes {
   id: string;
   name: string;
   price: number;
-  source: number;
+  source: ImageSourcePropType;
   onPress: () => any; // Define the onPress property as a function
 }
 
