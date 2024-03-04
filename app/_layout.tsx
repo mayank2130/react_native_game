@@ -9,6 +9,7 @@ import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
+import { NativeRouter } from "react-router-native";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -51,18 +52,23 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   return (
-    <BalanceProvider>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen
-          name="(modals)/CommercialProperties"
-          options={{ headerShown: true, headerTitle: "Commercial Properties" }}
-        />
-        <Stack.Screen
-          name="(modals)/PersonalProperties"
-          options={{ headerShown: true, headerTitle: "Personal Properties" }}
-        />
-      </Stack>
-    </BalanceProvider>
+    <NativeRouter>
+      <BalanceProvider>
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="(modals)/CommercialProperties"
+            options={{
+              headerShown: true,
+              headerTitle: "Commercial Properties",
+            }}
+          />
+          <Stack.Screen
+            name="(modals)/PersonalProperties"
+            options={{ headerShown: true, headerTitle: "Personal Properties" }}
+          />
+        </Stack>
+      </BalanceProvider>
+    </NativeRouter>
   );
 }

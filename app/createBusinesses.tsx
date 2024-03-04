@@ -10,7 +10,8 @@ import {
 } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import { useNavigation } from "expo-router";
+import { useNavigation, useRouter } from "expo-router";
+import { createBusinessTypes } from "@/constants/CreateBusiness";
 
 export default function ElevatedCards() {
   function openWebsite(websiteLink: string) {
@@ -24,264 +25,88 @@ export default function ElevatedCards() {
       // headerTransparent: true,
     });
   }, []);
-
+  const router = useRouter();
   return (
-    <View style={{ backgroundColor: "#fff" }}>
-      <ScrollView>
-        <View style={{ marginTop: 30 }}>
-          {/* <Text style={styles.headingText}></Text> */}
-          <View style={styles.containerTwo}>
-            <TouchableOpacity>
-              <View
-                style={[
-                  styles.cardThree,
-                  styles.cardElevated,
-                  { alignItems: "center", justifyContent: "center" },
-                ]}
-              >
-                <ImageBackground
-                  source={require("../assets/images/grocery-cart.png")}
-                  style={{
-                    height: 60,
-                    width: 60,
-                    borderRadius: 25,
-                    margin: 6,
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                />
-                <Text style={styles.innerTxt}>Grocery Store</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <View
-                style={[
-                  styles.cardThree,
-                  styles.cardElevated,
-                  { alignItems: "center", justifyContent: "center" },
-                ]}
-              >
-                <ImageBackground
-                  source={require("../assets/images/factory.png")}
-                  style={{
-                    height: 60,
-                    width: 60,
-                    borderRadius: 25,
-                    margin: 6,
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                />
-                <Text style={styles.innerTxt}>Factory</Text>
-              </View>
-            </TouchableOpacity>
+    <>
+      <View style={{ backgroundColor: "#fff" }}>
+        <ScrollView>
+          <View style={{ marginTop: 30 }}>
+            {createBusinessTypes.reduce((pairs, businessType, index) => {
+              if (index % 2 === 0) {
+                pairs.push(
+                  // @ts-ignore
+                  <View key={index} style={styles.containerTwo}>
+                    <TouchableOpacity
+                      onPress={() => router.push(businessType.onPress())}
+                    >
+                      <View
+                        style={[
+                          styles.cardThree,
+                          styles.cardElevated,
+                          { alignItems: "center", justifyContent: "center" },
+                        ]}
+                      >
+                        <ImageBackground
+                          source={businessType.source}
+                          style={{
+                            height: 60,
+                            width: 60,
+                            borderRadius: 25,
+                            margin: 6,
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        />
+                        <Text style={styles.innerTxt}>{businessType.name}</Text>
+                      </View>
+                    </TouchableOpacity>
+
+                    {index + 1 < createBusinessTypes.length && (
+                      <TouchableOpacity
+                        onPress={() =>
+                          router.push(createBusinessTypes[index + 1].onPress())
+                        }
+                      >
+                        <View
+                          style={[
+                            styles.cardThree,
+                            styles.cardElevated,
+                            { alignItems: "center", justifyContent: "center" },
+                          ]}
+                        >
+                          <ImageBackground
+                            source={createBusinessTypes[index + 1].source}
+                            style={{
+                              height: 60,
+                              width: 60,
+                              borderRadius: 25,
+                              margin: 6,
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          />
+                          <Text style={styles.innerTxt}>
+                            {createBusinessTypes[index + 1].name}
+                          </Text>
+                        </View>
+                      </TouchableOpacity>
+                    )}
+                  </View>
+                );
+              }
+
+              return pairs;
+            }, [])}
           </View>
-          <View style={styles.containerTwo}>
-            <TouchableOpacity>
-              <View
-                style={[
-                  styles.cardThree,
-                  styles.cardElevated,
-                  { alignItems: "center", justifyContent: "center" },
-                ]}
-              >
-                <ImageBackground
-                  source={require("../assets/images/construction-site.png")}
-                  style={{
-                    height: 60,
-                    width: 60,
-                    borderRadius: 25,
-                    margin: 6,
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                />
-                <Text style={styles.innerTxt}>Construction </Text>
-                <Text style={styles.innerTxt}>Company </Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <View
-                style={[
-                  styles.cardThree,
-                  styles.cardElevated,
-                  { alignItems: "center", justifyContent: "center" },
-                ]}
-              >
-                <ImageBackground
-                  source={require("../assets/images/spyware.png")}
-                  style={{
-                    height: 60,
-                    width: 60,
-                    borderRadius: 25,
-                    margin: 6,
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                />
-                <Text style={styles.innerTxt}>Intelligence</Text>
-                <Text style={styles.innerTxt}>Company</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.containerTwo}>
-            <TouchableOpacity>
-              <View
-                style={[
-                  styles.cardThree,
-                  styles.cardElevated,
-                  { alignItems: "center", justifyContent: "center" },
-                ]}
-              >
-                <ImageBackground
-                  source={require("../assets/images/bank.png")}
-                  style={{
-                    height: 60,
-                    width: 60,
-                    borderRadius: 25,
-                    margin: 6,
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                />
-                <Text style={styles.innerTxt}>Bank</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <View
-                style={[
-                  styles.cardThree,
-                  styles.cardElevated,
-                  { alignItems: "center", justifyContent: "center" },
-                ]}
-              >
-                <ImageBackground
-                  source={require("../assets/images/virtual-reality.png")}
-                  style={{
-                    height: 60,
-                    width: 60,
-                    borderRadius: 25,
-                    margin: 6,
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                />
-                <Text style={styles.innerTxt}>Tech Startup</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.containerTwo}>
-            <TouchableOpacity>
-              <View
-                style={[
-                  styles.cardThree,
-                  styles.cardElevated,
-                  { alignItems: "center", justifyContent: "center" },
-                ]}
-              >
-                <ImageBackground
-                  source={require("../assets/images/oil-rig.png")}
-                  style={{
-                    height: 60,
-                    width: 60,
-                    borderRadius: 25,
-                    margin: 6,
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                />
-                <Text style={styles.innerTxt}>Oil & Gas</Text>
-                <Text style={styles.innerTxt}>Company</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <View
-                style={[
-                  styles.cardThree,
-                  styles.cardElevated,
-                  { alignItems: "center", justifyContent: "center" },
-                ]}
-              >
-                <ImageBackground
-                  source={require("../assets/images/electric-factory.png")}
-                  style={{
-                    height: 60,
-                    width: 60,
-                    borderRadius: 25,
-                    margin: 6,
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                />
-                <Text style={styles.innerTxt}>Power Plants</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.containerTwo}>
-            <TouchableOpacity>
-              <View
-                style={[
-                  styles.cardThree,
-                  styles.cardElevated,
-                  { alignItems: "center", justifyContent: "center" },
-                ]}
-              >
-                <ImageBackground
-                  source={require("../assets/images/cocaine_4612345.png")}
-                  style={{
-                    height: 60,
-                    width: 60,
-                    borderRadius: 25,
-                    margin: 6,
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                />
-                <Text style={styles.innerTxt}>Drug Cartel</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <View
-                style={[
-                  styles.cardThree,
-                  styles.cardElevated,
-                  { alignItems: "center", justifyContent: "center" },
-                ]}
-              >
-                <ImageBackground
-                  source={require("../assets/images/launcher_942492.png")}
-                  style={{
-                    height: 60,
-                    width: 60,
-                    borderRadius: 25,
-                    margin: 6,
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                />
-                <Text style={styles.innerTxt}>Arms Delear </Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </ScrollView>
-    </View>
+        </ScrollView>
+      </View>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   innerTxt: {
     fontFamily: "mon-sb",
-  },
-  headingText: {
-    fontSize: 24,
-    fontWeight: "bold",
-    paddingHorizontal: 10,
-    margin: 2,
-    marginBottom: 10,
-  },
-  seperator: {
-    marginTop: 50,
   },
   cardThree: {
     width: 160,
@@ -290,111 +115,10 @@ const styles = StyleSheet.create({
     marginVertical: 12,
     marginHorizontal: 10,
   },
-  cardFour: {
-    height: 180,
-    width: 380,
-    borderRadius: 10,
-    marginVertical: 12,
-    marginHorizontal: 10,
-  },
-  cardImage: {
-    height: 200,
-    marginBottom: 10,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-  },
-  cardBody: {
-    flex: 1,
-    flexGrow: 1,
-    paddingHorizontal: 12,
-  },
-  cardSemiBody: {
-    flex: 1,
-    flexGrow: 1,
-    flexDirection: "row",
-    gap: 45,
-  },
-  cardTilte: {
-    color: "#000000",
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 8,
-  },
-  cardLabel: {
-    fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 12,
-  },
-  cardDescription: {
-    fontSize: 15,
-  },
-  cardFooter: {
-    fontSize: 15,
-  },
-  headingTextTwo: {
-    fontSize: 24,
-    fontWeight: "bold",
-    paddingHorizontal: 10,
-    margin: 2,
-    marginBottom: 10,
-  },
-  overlayText: {
-    bottom: 0,
-    color: "black",
-    fontSize: 16,
-  },
-  container: {
-    height: "auto",
-    flexDirection: "row",
-    padding: 10,
-  },
   containerTwo: {
-    // height: "auto",
-    // width:"auto",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-  },
-  containerThree: {
-    flex: 1,
-    marginLeft: 8,
-    marginRight: 8,
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column",
-  },
-  card: {
-    flex: 1,
-    margin: 8,
-    justifyContent: "center",
-    alignItems: "center",
-    height: 140,
-    width: 140,
-    borderRadius: 4,
-  },
-  cardTwo: {
-    flex: 1,
-    margin: 8,
-    flexDirection: "row",
-    gap: 25,
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    height: 100,
-    width: 100,
-    borderRadius: 4,
-  },
-  innerCard: {
-    flex: 1,
-    marginLeft: 10,
-    paddingBottom: 4,
-    paddingTop: 4,
-    flexDirection: "column",
-    gap: 10,
-    alignItems: "center",
-    // backgroundColor:"#fff"
-    // height: 100,
-    // width: 100,
-    // borderRadius: 4,
   },
   cardElevated: {
     backgroundColor: "#FFFFFF",
@@ -403,10 +127,5 @@ const styles = StyleSheet.create({
       width: 1,
       height: 1,
     },
-  },
-  gradient: {
-    flex: 1,
-    borderRadius: 35,
-    elevation: 8,
   },
 });

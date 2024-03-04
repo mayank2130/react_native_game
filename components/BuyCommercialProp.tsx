@@ -21,7 +21,7 @@ const PropertyCard: React.FunctionComponent<{ item: Property }> = ({
   const { balance, deductBalance } = useBalance();
 
   const handleBuy = () => {
-    const itemPrice = 100000;
+    const itemPrice = item.price;
     deductBalance(itemPrice);
   };
 
