@@ -1,3 +1,4 @@
+import { BalanceProvider } from "@/Redux/BalanceContext";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import {
   DarkTheme,
@@ -50,16 +51,18 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen
-        name="(modals)/CommercialProperties"
-        options={{ headerShown: true }}
-      />
-      <Stack.Screen
-        name="(modals)/PersonalProperties"
-        options={{ headerShown: true }}
-      />
-    </Stack>
+    <BalanceProvider>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="(modals)/CommercialProperties"
+          options={{ headerShown: true, headerTitle: "Commercial Properties" }}
+        />
+        <Stack.Screen
+          name="(modals)/PersonalProperties"
+          options={{ headerShown: true, headerTitle: "Personal Properties" }}
+        />
+      </Stack>
+    </BalanceProvider>
   );
 }

@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { FontAwesome } from "@expo/vector-icons";
+import { useBalance } from "@/Redux/BalanceContext";
 
 const App = () => {
-  const [balance, setBalance] = useState(0);
+  const [balancebalance, setBalance] = useState(0);
 
+  const { balance, deductBalance, increaseBalance } = useBalance();
   const makeMoney = () => {
-    setBalance((prevBalance) => prevBalance + 10);
+    increaseBalance(10);
   };
-
   return (
     <>
       <View style={{ backgroundColor: "#ffffff" }}>

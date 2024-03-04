@@ -12,13 +12,25 @@ import {
 import { propertyData } from "@/constants/Properties";
 
 import type { Property } from "@/constants/Properties";
+// @ts-ignore
+import { useBalance } from "@/Redux/BalanceContext";
 
-const PropertyCard: React.FC<{ item: Property }> = ({ item }) => {
+const PropertyCard: React.FunctionComponent<{ item: Property }> = ({
+  item,
+}) => {
+  const { balance, deductBalance } = useBalance();
+
+  const handleBuy = () => {
+    const itemPrice = 100000;
+    deductBalance(itemPrice);
+  };
+
   return (
     <View style={styles.card}>
       <Image source={item.source} style={styles.cardImage} />
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         <View style={styles.cardDetails}>
+          <Text>Current Balance: {balance}</Text>
           <Text style={styles.price}>{item.price}</Text>
           <View style={styles.locationContainer}>
             <Entypo name="location" size={16} color="black" />
@@ -26,7 +38,7 @@ const PropertyCard: React.FC<{ item: Property }> = ({ item }) => {
           </View>
         </View>
         <View>
-          <TouchableOpacity style={styles.buyButton}>
+          <TouchableOpacity onPress={handleBuy} style={styles.buyButton}>
             <Text style={styles.innerTxt}>Buy</Text>
           </TouchableOpacity>
         </View>
