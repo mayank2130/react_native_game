@@ -7,7 +7,7 @@ import {
   View,
 } from "react-native";
 import React, { useLayoutEffect } from "react";
-import { ShopPrice, shopPrice } from "@/constants/CreateBusiness";
+import { ShopPrice } from "@/constants/CreateBusiness";
 import { useNavigation } from "expo-router";
 import { useRoute } from "@react-navigation/native";
 
@@ -33,7 +33,7 @@ const HomeScreen = () => {
   return (
     <View style={{ flex: 1, margin: 30 }}>
       <View style={{ marginVertical: 20 }}>
-        <Text style={styles.headingText}>Enter Store Name</Text>
+        <Text style={styles.headingText}>Enter Company Name</Text>
       </View>
       <View style={{ marginVertical: 20 }}>
         <TextInput style={styles.input} placeholder="Type Here" />

@@ -20,6 +20,30 @@ export const shopPrice: ShopPrice[] = [
   { id: "3", price: 250000, name: "Large Chain of Shops" },
 ];
 
+export interface FactoryPrice {
+  id: string;
+  price: number;
+  name: string;
+}
+
+export const factoryPrice: FactoryPrice[] = [
+  { id: "1", price: 50000, name: "Small Factory" },
+  { id: "2", price: 750000, name: "Mid-Size Factory" },
+  { id: "3", price: 5000000, name: "Large Factory" },
+];
+
+export interface ConstructionPrice {
+  id: string;
+  price: number;
+  name: string;
+}
+
+export const constructionPrice: ConstructionPrice[] = [
+  { id: "1", price: 50000, name: "Small Construction Company" },
+  { id: "2", price: 750000, name: "Mid-Size Construction Company" },
+  { id: "3", price: 5000000, name: "Large Construction Company" },
+];
+
 export const createBusinessTypes: CreateBusinessTypes[] = [
   {
     id: "1",
@@ -33,14 +57,14 @@ export const createBusinessTypes: CreateBusinessTypes[] = [
     name: "Factory",
     price: 0,
     source: require("../assets/images/factory.png"),
-    onPress: () => "/(modals)/GroceryStore",
+    onPress: () => "/(modals)/Factory",
   },
   {
     id: "3",
     name: "Construction Company",
     price: 0,
     source: require("../assets/images/construction-site.png"),
-    onPress: () => "/(modals)/GroceryStore",
+    onPress: () => "/(modals)/Construction",
   },
   {
     id: "4",
