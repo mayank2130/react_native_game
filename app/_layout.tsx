@@ -1,11 +1,13 @@
 // @ts-ignore
 import { BalanceProvider } from "@/Redux/BalanceContext";
-import { CompanyProvider} from "@/Redux/NameContext";
+import { CompanyProvider } from "@/Redux/NameContext";
+import store from "@/Redux/Store";
 
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
+import { Provider } from "react-redux";
 import { NativeRouter } from "react-router-native";
 
 export {
@@ -49,28 +51,30 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   return (
-    <NativeRouter>
-      <BalanceProvider>
-        <CompanyProvider>
-          <Stack>
-            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-            <Stack.Screen
-              name="(modals)/CommercialProperties"
-              options={{
-                headerShown: true,
-                headerTitle: "Commercial Properties",
-              }}
-            />
-            <Stack.Screen
-              name="(modals)/PersonalProperties"
-              options={{
-                headerShown: true,
-                headerTitle: "Personal Properties",
-              }}
-            />
-          </Stack>
-        </CompanyProvider>
-      </BalanceProvider>
-    </NativeRouter>
+    <Provider store={store}>
+      <NativeRouter>
+        <BalanceProvider>
+          <CompanyProvider>
+            <Stack>
+              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+              <Stack.Screen
+                name="(modals)/CommercialProperties"
+                options={{
+                  headerShown: true,
+                  headerTitle: "Commercial Properties",
+                }}
+              />
+              <Stack.Screen
+                name="(modals)/PersonalProperties"
+                options={{
+                  headerShown: true,
+                  headerTitle: "Personal Properties",
+                }}
+              />
+            </Stack>
+          </CompanyProvider>
+        </BalanceProvider>
+      </NativeRouter>
+    </Provider>
   );
 }

@@ -14,23 +14,51 @@ import {
   View,
 } from "react-native";
 import React, { useEffect } from "react";
-import { useRouter } from "expo-router";
+import { useNavigation, useRouter } from "expo-router";
 import { useCompany } from "@/Redux/NameContext";
-import { loadCompanyList } from "@/Redux/NameContext";
+// import { loadCompanyList } from "@/Redux/NameContext";
+import {
+  addCompany,
+  removeCompany,
+  emptyCompanyList,
+  loadCompanyList,
+} from "@/Redux/CompanyActions";
+import { useDispatch, useSelector } from "react-redux";
 
-const HomeScreen = () => {
-  const { companyList, updateCompanyList, removeCompany } = useCompany();
+// const { companyList, updateCompanyList, removeCompany } = useCompany();
 
-  const getCompanies = async () => {
-    await loadCompanyList();
-  };
+// const getCompanies = async () => {
+//   await loadCompanyList();
+// };
+// useEffect(() => {
+//   getCompanies();
+// }, []);
+
+// const handleRemoveCompany = (companyToRemove: string) => {
+//   // Call the removeCompany function with the company name to remove
+//   removeCompany(companyToRemove);
+// };
+const HomeScreen: React.FC = () => {
+  const dispatch = useDispatch();
+  const navigation = useNavigation();
+  const companyList = useSelector((state: any) => state.company.companyList);
+
   useEffect(() => {
-    getCompanies();
-  }, []);
+    // @ts-ignore
+    dispatch(loadCompanyList());
+  }, [dispatch]);
 
-  const handleRemoveCompany = (companyToRemove: string) => {
-    // Call the removeCompany function with the company name to remove
-    removeCompany(companyToRemove);
+  const handleAddCompany = () => {
+    const newCompany = "Your New Company"; // Replace with your logic to get the new company
+    dispatch(addCompany(newCompany));
+  };
+
+  const handleRemoveCompany = (company: string) => {
+    dispatch(removeCompany(company));
+  };
+
+  const handleEmptyCompanyList = () => {
+    dispatch(emptyCompanyList());
   };
 
   const router = useRouter();
@@ -77,7 +105,6 @@ const HomeScreen = () => {
                 </View>
               </TouchableOpacity>
             </View>
-            <View></View>
             <View style={{ flex: 1, flexDirection: "row" }}>
               <View style={styles.containerThree}>
                 <TouchableOpacity
@@ -123,16 +150,21 @@ const HomeScreen = () => {
             </View>
             <View>
               <Text>Company List:</Text>
-              {companyList.map((company, index) => (
+
+              {companyList.map((company: string, index: number) => (
                 <View key={index}>
                   <Text>{company}</Text>
-                  {/* Add a button to remove the specific company */}
                   <Button
                     title="Remove"
                     onPress={() => handleRemoveCompany(company)}
                   />
                 </View>
               ))}
+              <Button title="Add Company" onPress={handleAddCompany} />
+              <Button
+                title="Empty Company List"
+                onPress={handleEmptyCompanyList}
+              />
             </View>
           </ScrollView>
         </View>
