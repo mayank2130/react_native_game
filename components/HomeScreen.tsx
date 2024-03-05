@@ -23,10 +23,8 @@ const HomeScreen = () => {
 
   const getCompanies = async () => {
     await loadCompanyList();
-    // Additional logic if needed after loading company list
   };
   useEffect(() => {
-    // Call the getCompanies function when the component mounts
     getCompanies();
   }, []);
 
