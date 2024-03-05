@@ -1,5 +1,12 @@
 // BalanceContext.tsx
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useEffect,
+} from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 interface BalanceContextProps {
   balance: number;
@@ -26,20 +33,52 @@ export const useBalance = () => {
 export const BalanceProvider: React.FC<BalanceProviderProps> = ({
   children,
 }) => {
-  const [balance, setBalance] = useState<number>(10000); // Initial balance
+  const [balance, setBalance] = useState<number>(0);
+
+  // Load balance from AsyncStorage on component mount
+  useEffect(() => {
+    const loadBalance = async () => {
+      try {
+        const storedBalance = await AsyncStorage.getItem("balance");
+        if (storedBalance !== null) {
+          setBalance(parseFloat(storedBalance));
+        }
+      } catch (error) {
+        console.error("Error loading balance from AsyncStorage:", error);
+      }
+    };
+
+    loadBalance();
+  }, []);
 
   const deductBalance = (amount: number) => {
-    setBalance((prevBalance) => prevBalance - amount);
+    setBalance((prevBalance) => {
+      const newBalance = prevBalance - amount;
+      saveBalanceToStorage(newBalance);
+      return newBalance;
+    });
   };
 
   const increaseBalance = (amount: number) => {
-    setBalance((prevBalance) => prevBalance + amount);
+    setBalance((prevBalance) => {
+      const newBalance = prevBalance + amount;
+      saveBalanceToStorage(newBalance);
+      return newBalance;
+    });
+  };
+
+  const saveBalanceToStorage = async (newBalance: number) => {
+    try {
+      await AsyncStorage.setItem("balance", newBalance.toString());
+    } catch (error) {
+      console.error("Error saving balance to AsyncStorage:", error);
+    }
   };
 
   const contextValue: BalanceContextProps = {
     balance,
     deductBalance,
-    increaseBalance
+    increaseBalance,
   };
 
   return (

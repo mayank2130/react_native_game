@@ -5,7 +5,6 @@ import { FontAwesome } from "@expo/vector-icons";
 import { useBalance } from "@/Redux/BalanceContext";
 
 const App = () => {
-  const [balancebalance, setBalance] = useState(0);
 
   const { balance, deductBalance, increaseBalance } = useBalance();
   const makeMoney = () => {

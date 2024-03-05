@@ -1,147 +1,180 @@
+import { RouteProp, useRoute, ParamListBase } from "@react-navigation/native";
+
 import {
-    Image,
-    ImageBackground,
-    Linking,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
-    useWindowDimensions,
-  } from "react-native";
-  import React from "react";
-  import { LinearGradient } from "expo-linear-gradient";
-  import { useRouter } from "expo-router";
-  
-  const HomeScreen = () => {
-    const router = useRouter();
-    return (
-      <>
-        
-        <View style={{ backgroundColor: "#fff", flex:1 }}>
-          <View>
-            <ScrollView>
-              <View style={[styles.containerThree, {paddingTop: 20}]}>
-                <TouchableOpacity>
+  Button,
+  FlatList,
+  Image,
+  ImageBackground,
+  Linking,
+  RefreshControl,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import React, { useEffect } from "react";
+import { useRouter } from "expo-router";
+import { useCompany } from "@/Redux/NameContext";
+import { loadCompanyList } from "@/Redux/NameContext";
+
+const HomeScreen = () => {
+  const { companyList, updateCompanyList, removeCompany } = useCompany();
+
+  const getCompanies = async () => {
+    await loadCompanyList();
+    // Additional logic if needed after loading company list
+  };
+  useEffect(() => {
+    // Call the getCompanies function when the component mounts
+    getCompanies();
+  }, []);
+
+  const handleRemoveCompany = (companyToRemove: string) => {
+    // Call the removeCompany function with the company name to remove
+    removeCompany(companyToRemove);
+  };
+
+  const router = useRouter();
+  return (
+    <>
+      <View style={{ backgroundColor: "#fff", flex: 1 }}>
+        <View>
+          <ScrollView>
+            <View style={[styles.containerThree, { paddingTop: 20 }]}>
+              <TouchableOpacity>
+                <View
+                  style={[
+                    styles.cardFour,
+                    styles.cardElevated,
+
+                    {
+                      paddingLeft: 20,
+                      alignItems: "flex-start",
+                      justifyContent: "center",
+                    },
+                  ]}
+                >
+                  <Text>$ 13,879,011,298.60</Text>
+                  <Text style={{ color: "green" }}>Total Income per hour</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.containerThree}>
+              <TouchableOpacity>
+                <View
+                  style={[
+                    styles.cardFour,
+                    styles.cardElevated,
+
+                    {
+                      paddingLeft: 20,
+                      alignItems: "flex-start",
+                      justifyContent: "center",
+                    },
+                  ]}
+                >
+                  <Text>25,000,000</Text>
+                  <Text style={{ color: "red" }}>Total Expense per hour</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+            <View></View>
+            <View style={{ flex: 1, flexDirection: "row" }}>
+              <View style={styles.containerThree}>
+                <TouchableOpacity
+                  onPress={() => router.push("/createBusinesses")}
+                >
                   <View
                     style={[
-                      styles.cardFour,
-                      styles.cardElevated,
-  
+                      styles.cardSix,
+
                       {
-                        paddingLeft: 20,
-                        alignItems: "flex-start",
+                        backgroundColor: "#1F75FE",
+
+                        alignItems: "center",
                         justifyContent: "center",
                       },
                     ]}
                   >
-                    <Text>$ 13,879,011,298.60</Text>
-                    <Text style={{ color: "green" }}>Total Income per hour</Text>
+                    <Text style={{ color: "white", letterSpacing: 0.3 }}>
+                      Start a business
+                    </Text>
                   </View>
                 </TouchableOpacity>
               </View>
               <View style={styles.containerThree}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => router.push("/buyBusinesses")}>
                   <View
                     style={[
-                      styles.cardFour,
+                      styles.cardSix,
                       styles.cardElevated,
-  
                       {
-                        paddingLeft: 20,
-                        alignItems: "flex-start",
+                        backgroundColor: "#F5F5F5",
+                        alignItems: "center",
                         justifyContent: "center",
                       },
                     ]}
                   >
-                    <Text>25,000,000</Text>
-                    <Text style={{ color: "red" }}>Total Expense per hour</Text>
+                    <Text style={{ color: "black", letterSpacing: 0.3 }}>
+                      Buy businesses
+                    </Text>
                   </View>
                 </TouchableOpacity>
               </View>
-              <View style={{ flex: 1, flexDirection: "row" }}>
-                <View style={styles.containerThree}>
-                  <TouchableOpacity
-                    onPress={() => router.push("/createBusinesses")}
-                  >
-                    <View
-                      style={[
-                        styles.cardSix,
-  
-                        {
-                          backgroundColor: "#1F75FE",
-  
-                          alignItems: "center",
-                          justifyContent: "center",
-                        },
-                      ]}
-                    >
-                      <Text style={{ color: "white", letterSpacing: 0.3 }}>
-                        Start a business
-                      </Text>
-                    </View>
-                  </TouchableOpacity>
+            </View>
+            <View>
+              <Text>Company List:</Text>
+              {companyList.map((company, index) => (
+                <View key={index}>
+                  <Text>{company}</Text>
+                  {/* Add a button to remove the specific company */}
+                  <Button
+                    title="Remove"
+                    onPress={() => handleRemoveCompany(company)}
+                  />
                 </View>
-                <View style={styles.containerThree}>
-                  <TouchableOpacity onPress={() => router.push("/buyBusinesses")}>
-                    <View
-                      style={[
-                        styles.cardSix,
-                        styles.cardElevated,
-                        {
-                          backgroundColor: "#F5F5F5",
-                          alignItems: "center",
-                          justifyContent: "center",
-                        },
-                      ]}
-                    >
-                      <Text style={{ color: "black", letterSpacing: 0.3 }}>
-                        Buy businesses
-                      </Text>
-                    </View>
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </ScrollView>
-          </View>
+              ))}
+            </View>
+          </ScrollView>
         </View>
-      </>
-    );
-  };
-  
-  const styles = StyleSheet.create({
-    cardFour: {
-      height: 100,
-      width: 340,
-      borderRadius: 10,
-      marginVertical: 12,
-      marginHorizontal: 10,
+      </View>
+    </>
+  );
+};
+
+const styles = StyleSheet.create({
+  cardFour: {
+    height: 100,
+    width: 340,
+    borderRadius: 10,
+    marginVertical: 12,
+    marginHorizontal: 10,
+  },
+  cardSix: {
+    height: 50,
+    borderRadius: 10,
+    marginVertical: 12,
+    padding: 10,
+    paddingLeft: 30,
+    paddingRight: 30,
+  },
+  containerThree: {
+    flex: 1,
+    marginLeft: 8,
+    marginRight: 8,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+  },
+  cardElevated: {
+    backgroundColor: "#FFFFFF",
+    elevation: 4,
+    shadowOffset: {
+      width: 1,
+      height: 1,
     },
-    cardSix: {
-      height: 50,
-      borderRadius: 10,
-      marginVertical: 12,
-      padding: 10,
-      paddingLeft: 30,
-      paddingRight: 30,
-    },
-    containerThree: {
-      flex: 1,
-      marginLeft: 8,
-      marginRight: 8,
-      justifyContent: "center",
-      alignItems: "center",
-      flexDirection: "column",
-    },
-    cardElevated: {
-      backgroundColor: "#FFFFFF",
-      elevation: 4,
-      shadowOffset: {
-        width: 1,
-        height: 1,
-      },
-    },
-  });
-  
-  export default HomeScreen;
-  
+  },
+});
+
+export default HomeScreen;

@@ -1,10 +1,7 @@
+// @ts-ignore
 import { BalanceProvider } from "@/Redux/BalanceContext";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from "@react-navigation/native";
+import { CompanyProvider} from "@/Redux/NameContext";
+
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
@@ -54,20 +51,25 @@ function RootLayoutNav() {
   return (
     <NativeRouter>
       <BalanceProvider>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen
-            name="(modals)/CommercialProperties"
-            options={{
-              headerShown: true,
-              headerTitle: "Commercial Properties",
-            }}
-          />
-          <Stack.Screen
-            name="(modals)/PersonalProperties"
-            options={{ headerShown: true, headerTitle: "Personal Properties" }}
-          />
-        </Stack>
+        <CompanyProvider>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen
+              name="(modals)/CommercialProperties"
+              options={{
+                headerShown: true,
+                headerTitle: "Commercial Properties",
+              }}
+            />
+            <Stack.Screen
+              name="(modals)/PersonalProperties"
+              options={{
+                headerShown: true,
+                headerTitle: "Personal Properties",
+              }}
+            />
+          </Stack>
+        </CompanyProvider>
       </BalanceProvider>
     </NativeRouter>
   );

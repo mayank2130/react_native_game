@@ -1,34 +1,39 @@
 import {
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { ShopPrice } from "@/constants/CreateBusiness";
 import { useNavigation } from "expo-router";
 import { useRoute } from "@react-navigation/native";
+import { loadCompanyList, useCompany } from "@/Redux/NameContext";
+import { useBalance } from "@/Redux/BalanceContext";
 
 const HomeScreen = () => {
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerTitle: "Choose the type of shop",
-      // headerTransparent: true,
-    });
-  }, []);
+  const { deductBalance } = useBalance();
+
   const navigation = useNavigation<any>();
   const route = useRoute();
 
-  // Extract selectedPrice from the route parameters
   const routeParams = route.params as { selectedPrice?: ShopPrice };
   const selectedPrice: ShopPrice | undefined = routeParams?.selectedPrice;
 
-  // const handleStartBusiness = () => {
-  //   // Navigate to the "BusinessName" screen without passing parameters here
-  //   navigation.navigate("", { selectedPrice });
-  // };
+  const [printedText, setPrintedText] = useState("");
+
+  const { updateCompanyList, companyList } = useCompany();
+
+  const handleButtonPress = () => {
+    const itemPrice = Number(selectedPrice?.price);
+    deductBalance(itemPrice);
+// @ts-ignore
+    updateCompanyList(printedText).then(() => {
+      setPrintedText("");
+      navigation.navigate("Home");
+    });
+  };
 
   return (
     <View style={{ flex: 1, margin: 30 }}>
@@ -36,14 +41,19 @@ const HomeScreen = () => {
         <Text style={styles.headingText}>Enter Company Name</Text>
       </View>
       <View style={{ marginVertical: 20 }}>
-        <TextInput style={styles.input} placeholder="Type Here" />
+        <TextInput
+          style={styles.input}
+          value={printedText}
+          onChangeText={(text) => setPrintedText(text)}
+          placeholder="Type Here"
+        />
       </View>
       <View style={{ marginVertical: 20, gap: 10 }}>
         <Text style={{ fontFamily: "mon", fontSize: 20 }}>
           Cost of Starting: $ {selectedPrice?.price}
         </Text>
       </View>
-      <TouchableOpacity style={styles.btnStyle}>
+      <TouchableOpacity onPress={handleButtonPress} style={styles.btnStyle}>
         <View>
           <Text style={[styles.innerTxt, { color: "#ffffff" }]}>
             Start the Business
