@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import { useNavigation } from "expo-router";
+import { router, useNavigation } from "expo-router";
 
 export default function BusinessScreen() {
   function openWebsite(websiteLink: string) {
@@ -31,7 +31,7 @@ export default function BusinessScreen() {
         <View style={{ marginTop: 30 }}>
           <Text style={styles.headingText}>Raise Capital</Text>
           <View style={styles.containerTwo}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => router.push("/(modals)/CityBank")}>
               <View
                 style={[
                   styles.cardFour,

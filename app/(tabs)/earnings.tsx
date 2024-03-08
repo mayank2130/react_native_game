@@ -15,7 +15,7 @@ const App = () => {
       <View style={{ backgroundColor: "#ffffff" }}>
         <View style={{ height: 280 }}>
           <LinearGradient
-            colors={["#00CCFF", "#007BA7"]}
+            colors={["#0C0F14", "#21262E"]}
             start={{ x: 0, y: 0.5 }}
             end={{ x: 1, y: 0.5 }}
             style={styles.gradient}
@@ -63,10 +63,11 @@ const styles = StyleSheet.create({
   },
   footerNextTxt: {
     fontFamily: "mon",
+    color: "#ffffff"
   },
   footerTxt: {
     fontFamily: "mon-b",
-    color: "#000000",
+    color: "#ffffff",
     letterSpacing: 2,
     marginLeft: 15,
     fontSize: 22,
