@@ -57,7 +57,7 @@ export default function BusinessScreen() {
             </TouchableOpacity>
           </View>
           <View style={styles.containerTwo}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => router.push("/InvestmentBank")}>
               <View
                 style={[
                   styles.cardFour,
@@ -81,7 +81,7 @@ export default function BusinessScreen() {
             </TouchableOpacity>
           </View>
           <View style={styles.containerTwo}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => router.push("/GovtNationalBank")}>
               <View
                 style={[
                   styles.cardFour,
