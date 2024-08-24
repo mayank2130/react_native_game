@@ -21,12 +21,18 @@ const CityBank = () => {
       headerTransparent: true,
     });
   }, []);
-  const { balance,increaseBalance } = useBalance();
-  const getLoan = () => {
-    increaseBalance(500000)
-
-    router.push("/(tabs)/earnings")
+  const { balance, increaseBalance } = useBalance();
+  const getLoan = (amount: number) => {
+    increaseBalance(amount);
+    router.push("/(tabs)/earnings");
   };
+  const priceOptions = [
+    { amount: 250000, interest: "5%", returnTime: "within 1 month" },
+    { amount: 500000, interest: "7%", returnTime: "within 3 months" },
+    { amount: 750000, interest: "8%", returnTime: "within 6 months" },
+    { amount: 1000000, interest: "10%", returnTime: "within 1 year" },
+  ];
+
   return (
     <>
       <ScrollView style={{ maxHeight: "auto", flex: 1 }}>
@@ -69,7 +75,7 @@ const CityBank = () => {
           </View>
         </View>
         <View style={[styles.containerThree, { marginTop: 150 }]}>
-          <View style={styles.containerThree}>
+          <View style={[styles.containerThree, {marginBottom: 20}]}>
             <Text
               style={[
                 styles.overlayText,
@@ -80,106 +86,106 @@ const CityBank = () => {
               interest rate accordingly.
             </Text>
           </View>
-          <View style={{ marginTop: 30 }}>
-            <View>
-              <View
-                style={[
-                  styles.cardFour,
 
-                  {
-                    alignItems: "flex-start",
-                    justifyContent: "flex-start",
-                    backgroundColor: "#fff",
-                    borderRadius: 20,
-                    paddingLeft: 20,
-                  },
-                ]}
-              >
-                <Text style={[styles.innerTxt, { color: "green" }]}>
-                  $ 500,000
-                </Text>
+          {priceOptions.map((price, index) => (
+            <View style={{ marginTop: 20 }} key={index}>
+              <View>
                 <View
                   style={[
+                    styles.cardFour,
                     {
                       alignItems: "flex-start",
                       justifyContent: "flex-start",
-                      paddingTop: 13,
+                      backgroundColor: "#fff",
+                      borderRadius: 20,
+                      paddingLeft: 20,
                     },
                   ]}
                 >
-                  <Text style={[styles.overlayText]}>At 7% interest</Text>
-                  <Text style={{ fontFamily: "mon-l", paddingTop: 5 }}>
-                    Return with in 3 months
+                  <Text style={[styles.innerTxt, { color: "green" }]}>
+                    ${price.amount.toLocaleString()}
                   </Text>
-                </View>
-                <View
-                  style={{
-                    flexDirection: "row",
-                    paddingTop: 30,
-                    alignItems: "center",
-                    // justifyContent: "space-between",
-                  }}
-                >
-                  <View style={{ flex: 1, flexDirection: "row" }}>
-                    <View style={styles.containerThree}>
-                      <Pressable>
-                        <View
-                          style={[
-                            styles.cardSix,
-
-                            {
-                              backgroundColor: "#9F8170",
-                              paddingLeft: 33,
-                              paddingRight: 33,
-                              alignItems: "center",
-                              justifyContent: "center",
-                            },
-                          ]}
-                        >
-                          <Text
-                            style={{
-                              color: "white",
-                              letterSpacing: 0.3,
-                              fontFamily: "mon-sb",
-                            }}
+                  <View
+                    style={{
+                      alignItems: "flex-start",
+                      justifyContent: "flex-start",
+                      paddingTop: 13,
+                    }}
+                  >
+                    <Text style={styles.overlayText}>
+                      At {price.interest} interest
+                    </Text>
+                    <Text style={{ fontFamily: "mon-l", paddingTop: 5 }}>
+                      Return {price.returnTime}
+                    </Text>
+                  </View>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      paddingTop: 30,
+                      alignItems: "center",
+                    }}
+                  >
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                      <View style={styles.containerThree}>
+                        <Pressable>
+                          <View
+                            style={[
+                              styles.cardSix,
+                              {
+                                backgroundColor: "#9F8170",
+                                paddingLeft: 33,
+                                paddingRight: 33,
+                                alignItems: "center",
+                                justifyContent: "center",
+                              },
+                            ]}
                           >
-                            No Deal
-                          </Text>
-                        </View>
-                      </Pressable>
-                    </View>
-                    <View style={styles.containerThree}>
-                      <Pressable onPress={() => getLoan()}>
-                        <View
-                          style={[
-                            styles.cardSix,
-                            styles.cardElevated,
-                            {
-                              backgroundColor: "#03C03C",
-                              paddingLeft: 42,
-                              paddingRight: 42,
-                              alignItems: "center",
-                              justifyContent: "center",
-                            },
-                          ]}
-                        >
-                          <Text
-                            style={{
-                              color: "white",
-                              letterSpacing: 0.3,
-                              fontFamily: "mon-sb",
-                            }}
+                            <Text
+                              style={{
+                                color: "white",
+                                letterSpacing: 0.3,
+                                fontFamily: "mon-sb",
+                              }}
+                            >
+                              No Deal
+                            </Text>
+                          </View>
+                        </Pressable>
+                      </View>
+                      <View style={styles.containerThree}>
+                        <Pressable onPress={() => getLoan(price.amount)}>
+                          <View
+                            style={[
+                              styles.cardSix,
+                              styles.cardElevated,
+                              {
+                                backgroundColor: "#03C03C",
+                                paddingLeft: 42,
+                                paddingRight: 42,
+                                alignItems: "center",
+                                justifyContent: "center",
+                              },
+                            ]}
                           >
-                            Deal
-                          </Text>
-                        </View>
-                      </Pressable>
+                            <Text
+                              style={{
+                                color: "white",
+                                letterSpacing: 0.3,
+                                fontFamily: "mon-sb",
+                              }}
+                            >
+                              Deal
+                            </Text>
+                          </View>
+                        </Pressable>
+                      </View>
                     </View>
                   </View>
                 </View>
               </View>
             </View>
-          </View>
+          ))}
         </View>
       </ScrollView>
     </>
